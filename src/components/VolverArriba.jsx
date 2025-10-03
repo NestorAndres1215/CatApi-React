@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Fab } from "@mui/material";
-import { KeyboardArrowUp } from "@mui/icons-material";
+import "../styles/VolverArriba.css"; // Import your custom CSS
 
 const VolverArriba = () => {
   const [visible, setVisible] = useState(false);
@@ -12,13 +11,12 @@ const VolverArriba = () => {
   }, []);
 
   return visible ? (
-    <Fab
-      color="primary"
-      sx={{ position: "fixed", bottom: 20, right: 20 }}
+    <button
+      className="volver-arriba-btn"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      <KeyboardArrowUp />
-    </Fab>
+      ↑
+    </button>
   ) : null;
 };
 

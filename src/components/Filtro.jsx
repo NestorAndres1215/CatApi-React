@@ -1,20 +1,21 @@
 import React from "react";
-import { Button, Stack } from "@mui/material";
+import "../styles/Filtro.css"; // Import your custom CSS
 
 const Filtro = ({ filtro, setFiltro }) => {
   const filtros = ["todos", "jugueton", "tranquilo", "social"];
+
   return (
-    <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
+    <div className="filtro-container">
       {filtros.map((f) => (
-        <Button
+        <button
           key={f}
-          variant={filtro === f ? "contained" : "outlined"}
+          className={`filtro-button ${filtro === f ? "selected" : ""}`}
           onClick={() => setFiltro(f)}
         >
           {f}
-        </Button>
+        </button>
       ))}
-    </Stack>
+    </div>
   );
 };
 

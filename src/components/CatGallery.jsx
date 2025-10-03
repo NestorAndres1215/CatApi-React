@@ -31,6 +31,7 @@ const CatGallery = () => {
     <>
       <Buscador busqueda={busqueda} setBusqueda={setBusqueda} />
       <Filtro filtro={filtro} setFiltro={setFiltro} />
+      
       <Grid container spacing={2}>
         {razasPaginadas.map((raza) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={raza.id}>
@@ -43,11 +44,13 @@ const CatGallery = () => {
           </Grid>
         ))}
       </Grid>
+      
       <Paginacion
         paginaActual={paginaActual}
         setPaginaActual={setPaginaActual}
         totalPaginas={totalPaginas}
       />
+      
       <VolverArriba />
       <ModalDetalle
         open={!!modalRaza}
