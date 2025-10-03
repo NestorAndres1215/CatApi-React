@@ -1,0 +1,64 @@
+/* CatCard.css */
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 250px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cat-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cat-card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.cat-card-info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.cat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.detail-btn {
+  padding: 6px 12px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.detail-btn:hover {
+  background-color: #3730a3;
+}

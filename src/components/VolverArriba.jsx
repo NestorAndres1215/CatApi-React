@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/VolverArriba.css"; // Import your custom CSS
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons"; // Importamos el icono de flecha hacia arriba
+import "../styles/VolverArriba.css"; // Importa tu CSS personalizado
 
 const VolverArriba = () => {
   const [visible, setVisible] = useState(false);
@@ -15,7 +17,7 @@ const VolverArriba = () => {
       className="volver-arriba-btn"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      ↑
+      <FontAwesomeIcon icon={faArrowUp} size="2x" />
     </button>
   ) : null;
 };

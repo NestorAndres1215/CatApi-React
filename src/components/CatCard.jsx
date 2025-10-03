@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-  IconButton,
-} from "@mui/material";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faHeartBroken, faInfoCircle } from "@fortawesome/free-solid-svg-icons"; // Importa el icono de info
+import "../styles/CatCard.css"; // Importa tu CSS personalizado
 
 const CatCard = ({ raza, toggleFavorito, isFavorito, abrirModal }) => {
   const imagenURL = raza.reference_image_id
@@ -16,28 +9,34 @@ const CatCard = ({ raza, toggleFavorito, isFavorito, abrirModal }) => {
     : "https://via.placeholder.com/400x300?text=Sin+Imagen";
 
   return (
-    <Card>
-      <CardMedia
-        component="img"
-        height="200"
-        image={imagenURL}
+    <div className="cat-card">
+      <img
+        src={imagenURL}
         alt={raza.name}
+        className="cat-card-img"
       />
-      <CardContent>
-        <Typography variant="h6">{raza.name}</Typography>
-        <Typography variant="body2" color="text.secondary">
+      <div className="cat-card-content">
+        <h3 className="cat-card-title">{raza.name}</h3>
+        <p className="cat-card-info">
           Origen: {raza.origin} | Vida: {raza.life_span} años
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <IconButton onClick={() => toggleFavorito(raza.id)}>
-          {isFavorito ? <Favorite color="error" /> : <FavoriteBorder />}
-        </IconButton>
-        <Button variant="contained" onClick={() => abrirModal(raza)}>
-          Ver detalle
-        </Button>
-      </CardActions>
-    </Card>
+        </p>
+        <div className="cat-card-actions">
+          {/* Botón de favoritos con el icono de corazón */}
+          <button className="fav-btn" onClick={() => toggleFavorito(raza.id)}>
+            <FontAwesomeIcon
+              icon={isFavorito ? faHeart : faHeartBroken}
+              size="lg"
+              style={{ color: isFavorito ? "red" : "gray" }}
+            />
+          </button>
+          {/* Botón de ver detalle con el icono de info */}
+          <button className="detail-btn" onClick={() => abrirModal(raza)}>
+            <FontAwesomeIcon icon={faInfoCircle} size="lg" style={{ marginRight: "8px" }} />
+            Ver detalle
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

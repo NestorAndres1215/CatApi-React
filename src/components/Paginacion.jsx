@@ -1,22 +1,29 @@
 import React from "react";
-import { Stack, Button, Typography } from "@mui/material";
+import "../styles/Paginacion.css"; // Importa tus estilos personalizados
 
 const Paginacion = ({ paginaActual, setPaginaActual, totalPaginas }) => {
   return (
-    <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" sx={{ my: 2 }}>
-      {Array.from({ length: totalPaginas }, (_, i) => (
-        <Button
-          key={i + 1}
-          variant={paginaActual === i + 1 ? "contained" : "outlined"}
-          onClick={() => setPaginaActual(i + 1)}
-        >
-          {i + 1}
-        </Button>
-      ))}
-      <Typography sx={{ ml: 2 }}>
-        Página {paginaActual} de {totalPaginas}
-      </Typography>
-    </Stack>
+    <div className="paginacion-container">
+      {/* Botones de páginas */}
+      <div className="paginacion-buttons">
+        {Array.from({ length: totalPaginas }, (_, i) => (
+          <button
+            key={i + 1}
+            className={`paginacion-btn ${paginaActual === i + 1 ? "active" : ""}`}
+            onClick={() => setPaginaActual(i + 1)}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
+
+      {/* Información de página */}
+      <div className="paginacion-info">
+        <span>
+          Página {paginaActual} de {totalPaginas}
+        </span>
+      </div>
+    </div>
   );
 };
 
