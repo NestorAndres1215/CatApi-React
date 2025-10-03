@@ -1,32 +1,107 @@
-/* Filtro.css */
-
+/* Container for filter buttons */
 .filtro-container {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
   justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 1.5rem auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  transition: box-shadow 0.3s ease;
 }
 
+.filtro-container:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styling */
 .filtro-button {
-  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1rem;
-  border: 2px solid #4f46e5;
-  border-radius: 8px;
-  background-color: white;
-  color: #4f46e5;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #2c3e50;
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 .filtro-button:hover {
-  background-color: #4f46e5;
-  color: white;
-  border-color: #4f46e5;
+  background-color: #3498db;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .filtro-button.selected {
-  background-color: #4f46e5;
-  color: white;
-  border-color: #4f46e5;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border-color: #e74c3c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon styling */
+.filtro-button .fa-paw,
+.filtro-button .fa-cat,
+.filtro-button .fa-bed,
+.filtro-button .fa-users {
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.filtro-button:hover .fa-paw,
+.filtro-button:hover .fa-cat,
+.filtro-button:hover .fa-bed,
+.filtro-button:hover .fa-users {
+  color: #ffffff;
+}
+
+.filtro-button.selected .fa-paw,
+.filtro-button.selected .fa-cat,
+.filtro-button.selected .fa-bed,
+.filtro-button.selected .fa-users {
+  color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .filtro-container {
+    gap: 0.75rem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .filtro-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .filtro-button .fa-paw,
+  .filtro-button .fa-cat,
+  .filtro-button .fa-bed,
+  .filtro-button .fa-users {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtro-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filtro-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
 }

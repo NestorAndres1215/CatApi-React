@@ -7,6 +7,7 @@ import Paginacion from "./Paginacion";
 import VolverArriba from "./VolverArriba";
 import ModalDetalle from "./ModalDetalle";
 import useRazas from "../hooks/useRazas";
+import "../styles/CatGallery.css"; // Import the new CSS
 
 const CatGallery = () => {
   const {
@@ -28,11 +29,13 @@ const CatGallery = () => {
   if (loading) return <CircularProgress sx={{ display: "block", mx: "auto", mt: 4 }} />;
 
   return (
-    <>
-      <Buscador busqueda={busqueda} setBusqueda={setBusqueda} />
-      <Filtro filtro={filtro} setFiltro={setFiltro} />
+    <div className="cat-gallery-container">
+      <div className="cat-gallery-search-filter">
+        <Buscador busqueda={busqueda} setBusqueda={setBusqueda} />
+        <Filtro filtro={filtro} setFiltro={setFiltro} />
+      </div>
       
-      <Grid container spacing={2}>
+      <Grid container spacing={2} className="cat-gallery-grid">
         {razasPaginadas.map((raza) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={raza.id}>
             <CatCard
@@ -45,19 +48,21 @@ const CatGallery = () => {
         ))}
       </Grid>
       
-      <Paginacion
-        paginaActual={paginaActual}
-        setPaginaActual={setPaginaActual}
-        totalPaginas={totalPaginas}
-      />
+      <div className="cat-gallery-pagination">
+        <Paginacion
+          paginaActual={paginaActual}
+          setPaginaActual={setPaginaActual}
+          totalPaginas={totalPaginas}
+        />
+      </div>
       
-      <VolverArriba />
+      <VolverArriba className="cat-gallery-back-to-top" />
       <ModalDetalle
         open={!!modalRaza}
         handleClose={() => setModalRaza(null)}
         raza={modalRaza}
       />
-    </>
+    </div>
   );
 };
 

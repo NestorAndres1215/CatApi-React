@@ -1,0 +1,116 @@
+/* Main gallery container */
+.cat-gallery-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 4rem); /* Adjust for padding and header/footer if present */
+  background-color: #f8f9fa;
+}
+
+/* Search and filter section */
+.cat-gallery-search-filter {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Grid container styling (overrides Material-UI default) */
+.cat-gallery-grid {
+  width: 100%;
+  justify-content: center; /* Ensures centered alignment */
+}
+
+/* Pagination styling */
+.cat-gallery-pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Back to top button styling */
+.cat-gallery-back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cat-gallery-back-to-top:hover {
+  background-color: #e74c3c;
+  transform: translateY(-2px);
+}
+
+.cat-gallery-back-to-top:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+/* Hide back to top button when not needed (e.g., at top of page) */
+.cat-gallery-back-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 960px) {
+  .cat-gallery-grid {
+    justify-content: center; /* Maintains centering */
+  }
+
+  .cat-gallery-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .cat-gallery-search-filter {
+    margin-bottom: 1.5rem;
+  }
+
+  .cat-gallery-pagination {
+    margin-top: 1.5rem;
+  }
+
+  .cat-gallery-back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cat-gallery-container {
+    padding: 1rem 0.25rem;
+  }
+
+  .cat-gallery-search-filter {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .cat-gallery-pagination {
+    margin-top: 1rem;
+  }
+
+  .cat-gallery-back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+  }
+}
